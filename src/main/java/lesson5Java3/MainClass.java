@@ -10,13 +10,6 @@ public class MainClass {
         static CyclicBarrier cyclicBarrier = new CyclicBarrier(CARS_COUNT);
 static Semaphore semaphore = new Semaphore(2);
 static ExecutorService executorService = Executors.newFixedThreadPool(CARS_COUNT);
-static FutureTask<String> futureTask = new FutureTask<>(new Callable<String>() {
-    @Override
-    public String call() throws Exception {
-
-        return winCar;
-    }
-});
 static CountDownLatch count= new CountDownLatch(CARS_COUNT);
 static int finishLine=40;
 static int counter=0;
@@ -42,8 +35,7 @@ public static void main(String[] args) {
            executorService.execute(new Thread(cars[i]));
         }
 executorService.shutdown();
-        executorService.submit(futureTask);
-        var f = "bhbhbhbhbhbhbhbhbhbhbhbhbh";
+               var f = "гонка заончилась";
     System.out.println(f);
     }
 }
